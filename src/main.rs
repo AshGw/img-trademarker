@@ -1,6 +1,5 @@
-extern crate img_watermarker;
-use img_watermarker::run; 
+use img_watermarker::watermark; 
 
 fn main() {
-    run();
+    watermark();
 }

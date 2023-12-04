@@ -6,8 +6,40 @@ use crate::decoder::decoder::decode;
 
 
 const DEFAULT_OUTPUT: &str = "output.jpg"; 
+/// The `watermark` function overlays a logo image onto another image and saves the resulting image.
+///
+/// # Arguments
+///
+/// * `logo_path` - The path to the logo image file.
+/// * `image_path` - The path to the main image file.
+/// * `debug` - Optional. Enables debug mode if set.
+/// * `output_path` - Optional. The path to save the resulting image. If not provided, defaults to "output.jpg".
+///
+/// # Example
+/// 
+/// ```rust
+/// use img_watermarker::watermark;
+/// 
+/// fn main() {
+///     watermark();
+/// ```
+///
+/// # Command Line Example
+///
+/// ```bash
+/// cargo run <logo> <image> <debug?> <output?>
+/// ```
+///
+/// ## Command Line Usage
+///
+/// ```bash
+/// cargo run logo.png image.jpg debug output.jpg
+/// ```
+///
+/// - The `debug` mode is optional and can be set to enable debugging output.
+/// - The `output` path is optional. If not provided, the result will be saved to "output.jpg".
 
-pub fn run() {
+pub fn watermark() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 3 {

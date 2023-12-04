@@ -4,7 +4,7 @@ The logo image will be added on top of the main image.
 
 **To overlay two images run:**
 ```bash
-cargo run <logo> <image> <debug?> <output?> # debug mode & output image are is optional
+cargo run <logo> <image> <debug?> <output?> # debug mode & output image are optional
 ```
 **Example**
 ```bash
