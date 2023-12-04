@@ -7,7 +7,7 @@ use crate::decoder::decoder::decode;
 
 const DEFAULT_OUTPUT: &str = "output.jpg"; 
 
-fn main() {
+pub fn run() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 3 {

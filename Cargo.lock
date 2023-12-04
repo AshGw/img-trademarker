@@ -228,14 +228,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "image_trademarker"
-version = "0.1.0"
-dependencies = [
- "image",
- "imageproc",
-]
-
-[[package]]
 name = "imageproc"
 version = "0.23.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -251,6 +243,14 @@ dependencies = [
  "rand_distr",
  "rayon",
  "rusttype",
+]
+
+[[package]]
+name = "img_watermarker"
+version = "0.0.1"
+dependencies = [
+ "image",
+ "imageproc",
 ]
 
 [[package]]
