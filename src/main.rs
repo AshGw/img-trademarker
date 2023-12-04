@@ -16,17 +16,32 @@ fn main() {
     let main_path: &String = &args[2];
 
     let logo_image: image::DynamicImage = ImageReader::open(logo_path)
-        .expect("Failed to open logo image")
+        .unwrap_or_else(|e| {
+            eprintln!("Failed to open the logo image: {}", e);
+            std::process::exit(1);
+        })
         .decode()
-        .unwrap();
+        .unwrap_or_else(|e| {
+            eprintln!("Failed to decode the logo image: {}", e);
+            std::process::exit(1);
+        });
 
     let main_image: image::DynamicImage = ImageReader::open(main_path)
-        .expect("Failed to open main image")
+        .unwrap_or_else(|e| {
+            eprintln!("Failed to open the main image: {}", e);
+            std::process::exit(1);
+        })
         .decode()
-        .unwrap();
+        .unwrap_or_else(|e| {
+            eprintln!("Failed to decode the main image: {}", e);
+            std::process::exit(1);
+        });
 
     let result_image: image::DynamicImage = overlay_images(logo_image, main_image);
 
     let output_path: &str = "./result_of_both.jpg";
-    result_image.save(output_path).expect("Failed to save result image");
+    result_image.save(output_path).unwrap_or_else(|e| {
+        eprintln!("Failed to save result image: {}", e);
+        std::process::exit(1);
+    });
 }
