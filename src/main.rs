@@ -26,7 +26,7 @@ fn main() {
         .map_or(DEFAULT_OUTPUT, String::as_str));
 
     let result_image: image::DynamicImage = overlay_images(
-        decode(&args[2], "main", debug),
+        decode(&args[1], "main", debug),
         decode(&args[2], "main", debug)
     );
 
@@ -41,5 +41,4 @@ fn main() {
         println!("Result image saved to {}", output_path);
     }
 }
-
 
