@@ -1,3 +1,6 @@
+//! # img_watermarker
+//! Minimal lib for watermarking images
+
 mod processor;
 mod decoder;
 use std::env;
