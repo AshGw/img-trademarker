@@ -4,11 +4,14 @@ use std::env;
 use image::io::Reader as ImageReader;
 use crate::processor::processor::overlay_images;
 
+
+const DEFAULT_OUTPUT: &str = "output.jpg"; 
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 3 {
-        eprintln!("Usage: {} <logo> <image> [debug] [output_path]", args[0]);
+        eprintln!("Usage: {} <logo> <image> [debug] [output]", args[0]);
         std::process::exit(1);
     }
 
@@ -19,8 +22,8 @@ fn main() {
     let output_path: &str = args
         .iter()
         .position(|arg: &String| arg == "debug")
-        .map_or("./result_of_both.jpg", |index: usize| args.get(index + 1)
-        .map_or("./result_of_both.jpg", String::as_str));
+        .map_or(DEFAULT_OUTPUT, |index: usize| args.get(index + 1)
+        .map_or(DEFAULT_OUTPUT, String::as_str));
 
     if debug {
         println!("Debug mode enabled.");
@@ -28,7 +31,6 @@ fn main() {
 
     let logo_image: image::DynamicImage = open_and_decode_image(logo_path, "logo", debug);
     let main_image: image::DynamicImage = open_and_decode_image(main_path, "main", debug);
-
     let result_image: image::DynamicImage = overlay_images(logo_image, main_image);
 
     result_image.save(output_path).unwrap_or_else(|e| {
