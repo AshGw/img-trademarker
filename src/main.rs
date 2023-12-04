@@ -8,7 +8,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() != 3 {
-        eprintln!("Usage: {} <logo_path> <main_path>", args[0]);
+        eprintln!("Usage: {} <logo> <image>", args[0]);
         std::process::exit(1);
     }
 
