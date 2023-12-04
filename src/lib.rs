@@ -22,6 +22,7 @@ const DEFAULT_OUTPUT: &str = "output.jpg";
 /// 
 /// fn main() {
 ///     watermark();
+/// }
 /// ```
 ///
 /// # Command Line Example
@@ -43,7 +44,7 @@ pub fn watermark() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 3 {
-        eprintln!("Usage: {} <logo> <image> [debug] [output]", args[0]);
+        eprintln!("Usage: <logo> <image> [debug] [output]");
         std::process::exit(1);
     }
 
