@@ -5,7 +5,7 @@ authors = ["AshGw ashrefgw@proton.me"]
 edition = "2021"
 description = "A minimal library for watermarking images"
 repository = "https://github.com/ashgw/img_watermarker"
-license = "UNLICENSE"
+license = "MIT"
 
 
 [lib]
