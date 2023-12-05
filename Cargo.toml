@@ -1,6 +1,6 @@
 [package]
 name = "img_watermarker"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["AshGw ashrefgw@proton.me"]
 edition = "2021"
 description = "A minimal library for watermarking images"
